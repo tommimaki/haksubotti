@@ -2,7 +2,7 @@
 
 // src/app/form/form.js
 import React, { useContext, useState } from "react";
-import { GlobalStateContext } from "../context/GlobalStateContext";
+import { GlobalStateContext } from "../../context/GlobalStateContext";
 import { scrapeAllWebsites } from "@/pages/api/scrape";
 
 const FormPage = () => {
@@ -31,13 +31,15 @@ const FormPage = () => {
       );
     }
   };
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 p-6 bg-white shadow-lg rounded-lg"
+    >
+      <div className="flex flex-col">
         <label
           htmlFor="company"
-          className="block text-sm font-medium text-gray-700"
+          className="mb-2 text-sm font-bold text-gray-700"
         >
           Company Name
         </label>
@@ -49,13 +51,13 @@ const FormPage = () => {
           onChange={(e) =>
             dispatch({ type: "SET_COMPANY", payload: e.target.value })
           }
-          className="mt-1 block w-full border-2 border-gray-300 rounded-lg rounded-md"
+          className="p-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300"
         />
       </div>
-      <div>
+      <div className="flex flex-col">
         <label
           htmlFor="companyId"
-          className="block text-sm font-medium text-gray-700"
+          className="mb-2 text-sm font-bold text-gray-700"
         >
           Company ID
         </label>
@@ -67,19 +69,15 @@ const FormPage = () => {
           onChange={(e) =>
             dispatch({ type: "SET_COMPANY_ID", payload: e.target.value })
           }
-          className="mt-1 block w-full border-2 border-gray-300 rounded-md"
+          className="p-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-300"
         />
       </div>
       <div>
-        <button
-          type="submit"
-          className="px-4 py-4 bg-slate-500  text-white rounded-md hover:bg-blue-400"
-        >
+        <button className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
           Search
         </button>
       </div>
     </form>
   );
 };
-
 export default FormPage;

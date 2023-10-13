@@ -9,7 +9,17 @@ export async function scrapeABC(company) {
   console.log("url in abc", url);
 
   try {
+    //fetching the html and setting it to cheerio const
     const $ = await scrapePage(url);
+    //if page not found
+    if (!$) {
+      return {
+        dataNotFound: true,
+        message: "Company data not found on Abc.fi site",
+      };
+    }
+
+    //data extraction from html elements
     const companyName = $("h2.redBorderBottomWider")?.text()?.trim() ?? "N/A";
     const area =
       $('div.form-group:contains("Alue:") p.form-control-static')
@@ -38,8 +48,6 @@ export async function scrapeABC(company) {
       $('div.form-group:contains("Kotisivu:") a')?.attr("href")?.trim() ??
       "N/A";
 
-    // log the extracted data
-
     const data = {
       companyName: companyName ?? "N/A",
       businessID: businessID ?? "N/A",
@@ -51,8 +59,6 @@ export async function scrapeABC(company) {
       url: url,
       siteName: "Abc.fi",
     };
-
-    // ... rest of your code
 
     console.log(data);
     return data;

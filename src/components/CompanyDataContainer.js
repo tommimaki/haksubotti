@@ -1,7 +1,7 @@
 "use client";
 // src/components/CompanyDataContainer.js
 import React, { useContext } from "react";
-import { GlobalStateContext } from "../context/GlobalStateContext";
+import { GlobalStateContext } from "../../context/GlobalStateContext";
 import CompanyDataDisplay from "./CompanyDataDisplay";
 
 const CompanyDataContainer = () => {

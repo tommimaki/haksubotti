@@ -1,0 +1,24 @@
+/* src/styles/styles.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.button {
+  background-color: #4299e1; /* Equivalent to bg-blue-500 in Tailwind CSS */
+  color: #ffffff; /* Equivalent to text-white in Tailwind CSS */
+  font-weight: bold; /* Equivalent to font-bold in Tailwind CSS */
+  padding: 0.5rem 1rem; /* Equivalent to py-2 px-4 in Tailwind CSS */
+  border-radius: 9999px; /* Equivalent to rounded-full in Tailwind CSS */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2c5282; /* Equivalent to hover:bg-blue-700 in Tailwind CSS */
+}
+
+.button:focus {
+  outline: none; /* Equivalent to focus:outline-none in Tailwind CSS */
+  box-shadow: 0 0 0 4px rgba(96, 111, 191, 0.5); /* Equivalent to focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 in Tailwind CSS */
+}

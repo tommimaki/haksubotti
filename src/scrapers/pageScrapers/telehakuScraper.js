@@ -16,6 +16,13 @@ export async function scrapeTelehaku(company) {
   try {
     //getting cheeriodata from common scraper
     const $ = await scrapePage(url);
+    if (!$) {
+      return {
+        dataNotFound: true,
+        message: "Company data not found on telehaku.fi",
+      };
+    }
+
     //extracting data:
     const companyName =
       ($("#yrityskortti h1").length && $("#yrityskortti h1").text().trim()) ||

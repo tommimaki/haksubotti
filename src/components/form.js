@@ -4,6 +4,7 @@
 import React, { useContext, useState } from "react";
 import { GlobalStateContext } from "../../context/GlobalStateContext";
 import { scrapeAllWebsites } from "@/pages/api/scrape";
+import { BeatLoader } from "react-spinners";
 
 const FormPage = () => {
   const { state, dispatch } = useContext(GlobalStateContext);
@@ -76,6 +77,7 @@ const FormPage = () => {
         <button className="border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
           Search
         </button>
+        {isLoading && <BeatLoader className="mt-10" color="#3498db" />}
       </div>
     </form>
   );

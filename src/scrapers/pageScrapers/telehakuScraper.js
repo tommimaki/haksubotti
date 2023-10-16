@@ -27,7 +27,7 @@ export async function scrapeTelehaku(company) {
     const companyName =
       ($("#yrityskortti h1").length && $("#yrityskortti h1").text().trim()) ||
       "N/A";
-    const businessID =
+    const yTunnus =
       ($("#yrityskortti .row .col-xs-9.text-left").length &&
         $("#yrityskortti .row .col-xs-9.text-left").first().text().trim()) ||
       "N/A";
@@ -39,7 +39,7 @@ export async function scrapeTelehaku(company) {
           .trim()
           .replace(/\s+/g, " ")) ||
       "N/A";
-    const phone =
+    const puhelin =
       ($("#yrityskortti .row .col-xs-9.text-left").eq(2).length &&
         $("#yrityskortti .row .col-xs-9.text-left").eq(2).text().trim()) ||
       "N/A";
@@ -74,9 +74,9 @@ export async function scrapeTelehaku(company) {
 
     const data = {
       companyName,
-      businessID,
+      yTunnus,
       address,
-      phone,
+      puhelin,
       sectors,
       contactPerson,
       operatingArea,

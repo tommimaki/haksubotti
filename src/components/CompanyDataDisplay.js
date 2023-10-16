@@ -1,4 +1,3 @@
-// src/components/CompanyDataDisplay.js
 import React from "react";
 
 const CompanyDataDisplay = ({ searchResults }) => {
@@ -27,16 +26,25 @@ const CompanyDataDisplay = ({ searchResults }) => {
     });
   };
 
-  return (
-    <div className="flex flex-wrap gap-4 p-6 bg-white rounded-lg mt-10  shadow-lg">
-      {searchResults.map((result, index) => (
-        <div
-          key={index}
-          className="flex-1 p-4 border-l-2 border-gray-400 flex border-left-2 flex-col items-start rounded-lg my-30"
-        >
-          <h1 className="text-lg text-left font-bold mb-4">
+  const freeResults = searchResults.filter(
+    (result) =>
+      (!result.puhelin || result.puhelin === "N/A") && !result.dataNotFound
+  );
+
+  const paidResults = searchResults.filter(
+    (result) => result.puhelin && result.puhelin !== "N/A"
+  );
+
+  const notFoundResults = searchResults.filter((result) => result.dataNotFound);
+
+  const renderCategory = (results, title) => (
+    <div className="flex-1 p-4 border-l-2 border-t-2 border-gray-400 flex flex-col items-start rounded-lg my-30">
+      <h1 className="text-lg text-left font-bold mb-4">{title}</h1>
+      {results.map((result, index) => (
+        <div key={index} className="mb-4 mt-2 pt-2 border-t-2 ">
+          <h2 className="text-lg text-left font-bold mb-4">
             {result.siteName}
-          </h1>
+          </h2>
           {result.dataNotFound ? (
             <div className="text-red-500 font-bold">{result.message}</div>
           ) : (
@@ -49,6 +57,14 @@ const CompanyDataDisplay = ({ searchResults }) => {
           )}
         </div>
       ))}
+    </div>
+  );
+
+  return (
+    <div className="flex flex-wrap gap-4 p-6 bg-white rounded-lg mt-10  shadow-lg">
+      {renderCategory(freeResults, "Free")}
+      {renderCategory(paidResults, "Paid")}
+      {renderCategory(notFoundResults, "Not Found")}
     </div>
   );
 };

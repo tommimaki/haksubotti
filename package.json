@@ -12,9 +12,11 @@
     "axios": "^1.5.1",
     "cheerio": "^1.0.0-rc.12",
     "next": "13.5.4",
+    "ocr-space-api-wrapper": "^2.3.0",
     "puppeteer": "^21.3.8",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "autoprefixer": "^10",

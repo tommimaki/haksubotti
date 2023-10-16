@@ -50,9 +50,9 @@ export async function scrapeABC(company) {
 
     const data = {
       companyName: companyName ?? "N/A",
-      businessID: businessID ?? "N/A",
+      yTunnus: businessID ?? "N/A",
       address: address ?? "N/A",
-      phone: phone ?? "N/A",
+      puhelin: phone ?? "N/A",
       area: area ?? "N/A",
       email: email ?? "N/A",
       customerWebsite: website ?? "N/A",

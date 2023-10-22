@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
         <div className="mx-auto max-w-7xl p-4">
           <header className="p-4 bg-white shadow-md">
             <nav className="flex justify-between items-center">
-              {/* Your navigation here */}
               <a
                 href="/"
                 className="text-lg font-semibold text-gray-800 hover:text-gray-600"
